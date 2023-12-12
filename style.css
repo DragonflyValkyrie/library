@@ -1,0 +1,16 @@
+:root {
+    --primary-bg-color: #e2e8f0;
+    --header-bg-color: #FFFFFF;
+    --accent-color: #1992d4;
+    --text-color: azure;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    margin: 0;
+    padding: 0;
+}
