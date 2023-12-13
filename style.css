@@ -4,6 +4,7 @@
     --accent-color: #1992d4;
     --text-color: azure;
     --card-bg-color: lightblue;
+    --nav-font: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -16,10 +17,109 @@ body {
     padding: 0;
 }
 
+.header-container {
+    height: 75px;
+    background: var(--accent-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-container h1 {
+    display: flex;
+    padding-left: 50px;   
+    color: #F9FAF8;
+    font-size: 24px;
+}
+
+.header-links {
+    display: flex;
+    margin-left: auto;
+    padding-right: 18px;
+    gap: 20px;
+    font-size: 18px;
+    color: #E5E7Eb;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header-links a {
+    font-family: var(--nav-font);
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-links li a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--text-color);
+    text-decoration-thickness: 2px;
+}
+
+.new-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--accent-color);
+}
+
+button:hover {
+    background-color: blue;
+}
+
+form {
+    font-family: var(--nav-font);
+}
+form h3 {
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-wrapper {
+    flex: 1;
+    margin: 20px;
+}
+
+label {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
 .content-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 25px;
+    margin: 25px;
 }
 
 .content-container .card {
@@ -39,3 +139,16 @@ body {
     font-size: 18px;
     text-align: left;
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--accent-color);
+    padding: 20px;
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: var(--nav-font);
+    text-align: center;
+}
+

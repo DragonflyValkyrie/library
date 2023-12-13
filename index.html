@@ -8,11 +8,49 @@
 </head>
 <body>
     <div class="header-container">
-        Header
+        <h1>Your Library</h1>
+        <ul class="header-links">
+            <li><a href="#" rel="noopenner">Browse Books</a></li>
+            <li><a href="#" rel="noopenner">Recommendations</a></li>
+            <li><a href="#" rel="noopenner">Support</a></li>
+        </ul>
     </div>
-    <div class="content-container" id="book-container">
 
+    <div class="new-book-container">
+        <button data-open-modal>+ New Book</button>
+
+        <dialog data-modal class="modal">
+            <form>
+                <h3>Add a new book</h3>
+                <div class="form container">
+                
+                <div class="input-wrapper">
+                    <label for="title">Book Title</label>
+                    <input type="text" name="title" id="title" placeholder="Book Title">
+                    
+                </div>
+                <div class="input-wrapper">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" placeholder="Author">
+                    
+                </div>
+                <div class="input-wrapper">
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" placeholder="Pages">
+                    
+                </div>
+                <div class="input-wrapper">
+                    <label for="read">Have You Read It?</label>
+                    <input type="checkbox" name="read" id="read">
+                </div>
+                </div>
+               
+            </form>
+        </dialog>
     </div>
+
+    <div class="content-container" id="book-container"></div>
+    <div class="footer">DragonflyValkyrie's Library 2023</div>
     <script src="script.js"></script>
 </body>
 </html>
