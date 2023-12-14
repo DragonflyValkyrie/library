@@ -20,29 +20,31 @@
         <button data-open-modal>+ New Book</button>
 
         <dialog data-modal class="modal">
-            <form>
+            <form id="bookForm">
                 <h3>Add a new book</h3>
                 <div class="form container">
                 
                 <div class="input-wrapper">
                     <label for="title">Book Title</label>
-                    <input type="text" name="title" id="title" placeholder="Book Title">
+                    <input type="text" name="title" id="title" placeholder="Book Title" required>
                     
                 </div>
                 <div class="input-wrapper">
                     <label for="author">Author</label>
-                    <input type="text" name="author" id="author" placeholder="Author">
+                    <input type="text" name="author" id="author" placeholder="Author" required>
                     
                 </div>
                 <div class="input-wrapper">
                     <label for="pages">Pages</label>
-                    <input type="number" name="pages" id="pages" placeholder="Pages">
+                    <input type="number" name="pages" id="pages" placeholder="Pages" min="1" max="9999" required>
                     
                 </div>
                 <div class="input-wrapper">
                     <label for="read">Have You Read It?</label>
                     <input type="checkbox" name="read" id="read">
                 </div>
+                <button type="submit">Add Book</button>
+
                 </div>
                
             </form>

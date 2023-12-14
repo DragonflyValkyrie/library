@@ -15,6 +15,9 @@ body {
     background-color: var(--primary-bg-color);
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header-container {
@@ -81,8 +84,13 @@ button:hover {
     background-color: blue;
 }
 
+dialog {
+    border-radius: 10px;
+}
+
 form {
     font-family: var(--nav-font);
+    
 }
 form h3 {
     text-align: center;
@@ -102,18 +110,12 @@ form h3 {
     margin: 20px;
 }
 
-label {
-    width: 100%;
-    margin-bottom: 8px;
-}
-
 input[type="text"],
 input[type="number"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     box-sizing: border-box;
 }
-
 
 .content-container {
     display: grid;
@@ -141,14 +143,12 @@ input[type="number"] {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background: var(--accent-color);
     padding: 20px;
     font-size: 14px;
     color: var(--text-color);
     font-family: var(--nav-font);
     text-align: center;
+    margin-top: auto;
 }
 
