@@ -1,26 +1,39 @@
-const myLibrary = [];
+class myLibrary {
+    constructor() {
+        this.books = [];
+    }
 
-// Book constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function () {
-        return `${this.title}, ${this.author}, ${this.pages}, ${this.read}`;
-    };
+    // Add new book to library
+    addBookToLibrary(title, author, pages, read) {
+        const newBook = new Book(title, author, pages, read);
+        this.books.push(newBook);
+    }
+
+    // Remove a book from the library
+    removeBookFromLibrary(index) {
+        this.books.splice(index, 1);
+    }
 }
 
-// Book prototype method to toggle read status
-Book.prototype.readBook = function () {
-    // Toggle read status between "Yes" and "No"
-    this.read = this.read === "No" ? "Yes" : "No";
-};
+class Book {
+    // Book constructor
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-// Add new book to library
-function addBookToLibrary(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
+    // Returns info of the book
+    info() {
+        return `${this.title}, ${this.author}, ${this.pages}, ${this.read}`;
+    }
+
+    // Toggle read status
+    readBook() {
+        // Toggle read status between "Yes" and "No"
+        this.read = this.read === "No" ? "Yes" : "No";
+    }
 }
 
 // Display the books in card format
@@ -28,8 +41,8 @@ function displayBooks() {
     const container = document.getElementById("book-container");
     container.innerHTML = "";
 
-    for (let i = 0; i < myLibrary.length; i++) {
-        const book = myLibrary[i];
+    for (let i = 0; i < libraryInstance.books.length; i++) {
+        const book = libraryInstance.books[i];
 
         // Create a div element for each book
         const bookCard = document.createElement("div");
@@ -66,7 +79,7 @@ function displayBooks() {
         // Removes book from library
         removeBook.addEventListener("click", function () {
             const indexToRemove = this.dataset.index;
-            removeBookFromLibrary(indexToRemove);
+            libraryInstance.removeBookFromLibrary(indexToRemove);
             displayBooks();
         });
 
@@ -83,17 +96,14 @@ function displayBooks() {
     }
 }
 
+const libraryInstance = new myLibrary();
+
 // Add sample books to the library
-addBookToLibrary("The Hobbit", "J.R.R Tolkien", 255, "Yes");
-addBookToLibrary("Lord Of The Rings", "J.R.R Tolkien", 3785, "No");
+libraryInstance.addBookToLibrary("The Hobbit", "J.R.R Tolkien", 255, "Yes");
+libraryInstance.addBookToLibrary("Lord Of The Rings", "J.R.R Tolkien", 3785, "No");
 
 // Display the initial set of books
 displayBooks();
-
-// Function to remove a book from the library
-function removeBookFromLibrary(index) {
-    myLibrary.splice(index, 1);
-}
 
 // Listen for form submit button
 document.getElementById("bookForm").addEventListener("submit", function (event) {
@@ -106,7 +116,7 @@ document.getElementById("bookForm").addEventListener("submit", function (event) 
     const read = document.getElementById("read").checked ? "Yes" : "No";
 
     // Add the new book to the library
-    addBookToLibrary(title, author, pages, read);
+    libraryInstance.addBookToLibrary(title, author, pages, read);
 
     // Reset the form
     event.target.reset();
